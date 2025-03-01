@@ -1,33 +1,30 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [tailwindcss(), sveltekit()],
 
 	test: {
-		workspace: [
-			{
-				extends: './vite.config.ts',
+		include: ['src/**/*.{test,spec}.{js,ts}'],
+		environment: 'node',
 
-				test: {
-					name: 'client',
-					environment: 'jsdom',
-					clearMocks: true,
-					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
-					exclude: ['src/lib/server/**'],
-					setupFiles: ['./vitest-setup-client.ts']
-				}
-			},
-			{
-				extends: './vite.config.ts',
+		coverage: {
+			provider: 'v8',
+		},
 
-				test: {
-					name: 'server',
-					environment: 'node',
-					include: ['src/**/*.{test,spec}.{js,ts}'],
-					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
-				}
-			}
-		]
+		environmentMatchGlobs: [
+			// Run browser-like tests in jsdom
+			['src/**/*.svelte.{test,spec}.{js,ts}', 'jsdom']
+		],
+
+		// Setup for client tests that run in jsdom
+		setupFiles: ['./vitest-setup-client.ts'],
+
+		// Global exclusions
+		exclude: ['**/node_modules/**', '**/dist/**'],
+
+		// For clearing mocks between tests
+		clearMocks: true
 	}
 });
