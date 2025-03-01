@@ -1,38 +1,93 @@
-# sv
+# FlexLayers Theme Skeleton for SvelteKit
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+[![FlexLayers](https://flexlayers.com/badge.svg)](https://flexlayers.com)
 
-## Creating a project
+This is the official skeleton repository for creating FlexLayers themes for SvelteKit. It provides a standardized foundation that all FlexLayers themes build upon, ensuring consistency, quality, and best practices across our theme ecosystem.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Purpose
+
+This skeleton serves as the starting point for theme developers who want to:
+
+- Create new FlexLayers themes
+- Contribute to the FlexLayers theme collection
+- Understand the structure and standards we use
+
+## What's Included
+
+- ⚡ Optimized SvelteKit project configuration
+- 🧪 Testing setup with Vitest and Testing Library
+- 🔍 ESLint and Prettier configuration
+- 📦 Essential package dependencies
+- 🏗️ Standardized file structure
+- 💻 Development workflow scripts
+
+## Svelte Version
+
+This skeleton uses **Svelte 4** and not the newer Svelte 5. This is a deliberate choice:
+
+- Our AI-powered workflow for theme creation and customization is optimized for Svelte 4
+- Current LLM support for Svelte 5's runes and newer features is still maturing
+- This ensures maximum compatibility and stability across our theme ecosystem
+
+We plan to update to Svelte 5 in the future as LLM capabilities evolve and support for the newer syntax becomes more robust.
+
+## Getting Started
+
+### Creating a New Theme
 
 ```bash
-# create a new project in the current directory
-npx sv create
+# Clone this skeleton
+git clone https://github.com/flexlayers/theme-skeleton.git my-theme
 
-# create a new project in my-app
-npx sv create my-app
-```
+# Navigate to the project directory
+cd my-theme
 
-## Developing
+# Install dependencies
+npm install
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+# Start development
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+### Structure
 
-To create a production version of your app:
+```
+├── src
+│   ├── lib            # Shared components and utilities
+│   └── routes         # SvelteKit routes and page components
+├── eslint.config.js   # ESLint configuration
+├── package.json       # Project dependencies
+├── svelte.config.js   # SvelteKit configuration
+├── tsconfig.json      # TypeScript configuration
+└── vite.config.ts     # Vite configuration
+```
+
+## Theme Development Guidelines
+
+When building a theme with this skeleton:
+
+1. Keep components modular and reusable
+2. Follow the established naming conventions
+3. Write tests for all components
+4. Ensure responsive behavior across all devices
+5. Maintain accessibility standards
+
+## Testing
 
 ```bash
-npm run build
+# Run all tests
+npm run test
+
+# Run tests in watch mode
+npm run test:unit
 ```
 
-You can preview the production build with `npm run preview`.
+## About FlexLayers
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+FlexLayers provides high-quality, professionally designed SvelteKit themes for developers and agencies. Our mission is to empower the SvelteKit community with beautiful, functional, and customizable themes.
+
+Visit [FlexLayers.com](https://flexlayers.com) to learn more about our theme collection and upcoming AI-powered customization tools.
+
+## License
+
+This skeleton is licensed under the [MIT License](LICENSE.md).
