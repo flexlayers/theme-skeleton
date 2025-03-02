@@ -10,7 +10,7 @@ export default defineConfig({
 		environment: 'node',
 
 		coverage: {
-			provider: 'v8',
+			provider: 'v8'
 		},
 
 		environmentMatchGlobs: [

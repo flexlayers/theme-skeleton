@@ -8,7 +8,7 @@ export default {
 			colors: {
 				// Extend default palette
 			}
-		},
+		}
 	},
-	plugins: [],
-}
+	plugins: []
+};
